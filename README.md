@@ -10,7 +10,7 @@ markdown
 
 GET /api/videos
 
-Exemplo de Resposta (200 OK)
+**Exemplo de Resposta (200 OK)**
 ```json
 [
     {
@@ -39,7 +39,7 @@ Retorna um vídeo específico pelo seu ID.
 Parâmetros de URL
 {id} (Long): O ID do vídeo que deseja obter.
 
-Exemplo de Resposta (200 OK)
+**Exemplo de Resposta (200 OK)**
 GET /api/videos/{id}
 
 ```json
@@ -59,10 +59,10 @@ Altera o status de favorito de um vídeo específico.
 Parâmetros de URL
 {videoId} (Long): O ID do vídeo que deseja marcar/desmarcar como favorito.
 
-Exemplo de Requisição:
+**Exemplo de Requisição:
 PATCH /api/videos/{videoId}
 
-Exemplo de Resposta (200 OK)
+**Exemplo de Resposta (200 OK)**
 
 ```json
 {
@@ -78,7 +78,7 @@ Retorna uma lista de vídeos pertencentes a uma categoria específica.
 Parâmetros de URL
 {categoryId} (Long): O ID da categoria pela qual deseja filtrar os vídeos.
 
-Exemplo de Requisição:
+**Exemplo de Requisição:**
 GET /api/videos/category/1
 
 ```json
@@ -112,7 +112,7 @@ Retorna uma lista de todos os vídeos marcados como favoritos.
 Exemplo de Requisição
 GET /api/videos/favorites
 
-Exemplo de Resposta (200 OK):
+**Exemplo de Resposta (200 OK):**
 
 ```json
 [
@@ -151,10 +151,10 @@ Corpo da Requisição:
     "categoryId": 1
 }
 ```
-Exemplo de Requisição
+**Exemplo de Requisição**
 POST /api/videos
 
-Exemplo de Resposta (201 Created)
+**Exemplo de Resposta (201 Created)
 
 ```json
 {
@@ -172,7 +172,7 @@ DELETE /api/videos/{id}
 Exclui um vídeo específico.
 Parâmetros de URL
 {id} (Long): O ID do vídeo que deseja excluir.
-Exemplo de Requisição
+**Exemplo de Requisição
 DELETE /api/videos/1
 Exemplo de Resposta (204 No Content)
 Não há corpo de resposta.
@@ -182,14 +182,86 @@ GET /api/videos/statistics
 
 Retorna estatísticas dos vídeos, incluindo o número total de favoritos e a média de visualizações.
 
-Exemplo de Requisição:
+**Exemplo de Requisição:
 GET /api/videos/statistics
 
-Exemplo de Resposta (200 OK)
+**Exemplo de Resposta (200 OK)**
 
 ```json
 {
     "totalFavorites": 3,
     "averageViews": 1000
 }
+```
+## FavoriteController
+
+### Adicionar Vídeo aos Favoritos
+
+**Método:** POST `/favorites`
+
+Este endpoint permite adicionar um vídeo aos favoritos de um usuário.
+
+**Parâmetros da Requisição:**
+- `UserFavorite` (JSON): Um objeto JSON que contém as informações necessárias para adicionar um vídeo aos favoritos. O objeto deve ter as seguintes propriedades:
+  - `userId` (Long): O ID do usuário que deseja adicionar o vídeo aos favoritos.
+  - `videoId` (Long): O ID do vídeo que deseja adicionar aos favoritos.
+
+**Exemplo de Requisição:**
+```json
+POST /favorites
+{
+    "userId": 1,
+    "videoId": 5
+}
+```
+Resposta de Sucesso (200 OK):
+O vídeo foi adicionado aos favoritos com sucesso.
+
+### Obter Vídeos Favoritos de um Usuário
+Método: GET /favorites/{userId}
+
+Este endpoint permite obter a lista de vídeos favoritos de um usuário com base em seu ID.
+
+Parâmetros da URL:
+
+{userId} (Long): O ID do usuário para o qual deseja obter a lista de vídeos favoritos.
+**Exemplo de Requisição:
+GET /favorites/1
+
+Resposta de Sucesso (200 OK):
+A resposta contém uma lista de vídeos que são favoritos do usuário com o ID especificado.
+
+Cada vídeo na lista possui as seguintes informações:
+
+id (Long): O ID do vídeo.
+title (String): O título do vídeo.
+description (String): A descrição do vídeo.
+url (String): A URL do vídeo.
+publicationDate (String): A data de publicação do vídeo.
+favorite (Boolean): Indica se o vídeo é favorito para o usuário.
+categoryId (Long): O ID da categoria à qual o vídeo pertence.
+**Exemplo de Resposta:**
+
+```json
+GET /favorites/1
+[
+    {
+        "id": 1,
+        "title": "Vídeo 1",
+        "description": "Descrição do Vídeo 1",
+        "url": "https://www.example.com/video1",
+        "publicationDate": "2022-01-28T10:00:00Z",
+        "favorite": true,
+        "categoryId": 1
+    },
+    {
+        "id": 4,
+        "title": "Vídeo 4",
+        "description": "Descrição do Vídeo 4",
+        "url": "https://www.example.com/video4",
+        "publicationDate": "2022-01-28T13:00:00Z",
+        "favorite": true,
+        "categoryId": 2
+    }
+]
 ```
