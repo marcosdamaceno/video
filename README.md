@@ -208,7 +208,6 @@ Este endpoint permite adicionar um vídeo aos favoritos de um usuário.
 
 **Exemplo de Requisição:**
 ```json
-POST /favorites
 {
     "userId": 1,
     "videoId": 5
@@ -243,7 +242,6 @@ categoryId (Long): O ID da categoria à qual o vídeo pertence.
 **Exemplo de Resposta:**
 
 ```json
-GET /favorites/1
 [
     {
         "id": 1,
@@ -265,3 +263,66 @@ GET /favorites/1
     }
 ]
 ```
+## UserController
+
+### Registrar Novo Usuário
+
+**Método:** POST `/users/register`
+
+Este endpoint permite registrar um novo usuário.
+
+**Parâmetros da Requisição:**
+- `User` (JSON): Um objeto JSON que contém as informações do novo usuário. O objeto deve ter as seguintes propriedades:
+  - `username` (String): O nome de usuário do novo usuário.
+  - `email` (String): O endereço de e-mail do novo usuário.
+  - `password` (String): A senha do novo usuário.
+
+**Exemplo de Requisição:**
+```json
+POST /users/register
+{
+    "username": "novousuario",
+    "email": "novousuario@example.com",
+    "password": "senha123"
+}
+```
+
+Resposta de Sucesso (200 OK):
+O novo usuário foi registrado com sucesso. A resposta contém as informações do usuário registrado.
+
+Resposta de Erro (400 Bad Request):
+Se houver algum problema ao registrar o novo usuário, uma resposta de erro será retornada.
+
+###Obter Todos os Usuários
+Método: GET /users
+
+Este endpoint permite obter a lista de todos os usuários registrados.
+
+**Exemplo de Requisição:**
+GET /users
+
+Resposta de Sucesso (200 OK):
+A resposta contém uma lista de todos os usuários registrados.
+
+Cada usuário na lista possui as seguintes informações:
+
+id (Long): O ID do usuário.
+username (String): O nome de usuário do usuário.
+email (String): O endereço de e-mail do usuário.
+**Exemplo de Resposta:**
+
+```json
+[
+    {
+        "id": 1,
+        "username": "usuario1",
+        "email": "usuario1@example.com"
+    },
+    {
+        "id": 2,
+        "username": "usuario2",
+        "email": "usuario2@example.com"
+    }
+]
+```
+
