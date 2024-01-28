@@ -1,6 +1,40 @@
 # video
 Aplicação web de streaming de vídeos utilizando as tecnologias Spring Framework, Spring Web Flux, Spring Boot e Spring Data. A aplicação deve permitir o gerenciamento e a exibição de vídeos, onde cada vídeo possui um título, descrição, URL e data de publicação 
-markdown
+# Documentação de Arquitetura - Video Streaming App
+
+O Video Streaming App é uma aplicação web reativa projetada para fornecer uma plataforma eficiente e escalável de streaming de vídeos.
+
+## Estrutura do Projeto
+
+A aplicação segue uma arquitetura baseada em microserviços, organizada da seguinte forma:
+
+### Pacotes
+
+- `controller`: Controladores RESTful que gerenciam as operações HTTP para categorias, vídeos, usuários e favoritos.
+- `exception`: Classes de exceção personalizadas para o tratamento de erros da aplicação.
+- `model`: Entidades de domínio, incluindo `Category`, `User`, `UserFavorite`, `Video` e `VideoStatistics`.
+- `repository`: Interfaces do Spring Data para a camada de persistência, permitindo interações não bloqueantes com o banco de dados.
+- `service`: Serviços que contêm a lógica de negócios e interagem com os repositórios.
+
+### Recursos
+
+- `application.properties`: Configurações da aplicação, incluindo conexão com o banco de dados H2 em memória.
+- `schema.sql`: Definições de esquema para criação de tabelas no banco de dados.
+
+## Configuração da Aplicação
+
+Utiliza o banco de dados em memória H2 configurado para operar de forma não bloqueante, inicializado durante a inicialização da aplicação.
+
+## Tecnologia
+
+- **Spring Boot**: Simplifica a configuração e o lançamento de serviços.
+- **Spring WebFlux**: Oferece suporte a APIs reativas e não bloqueantes.
+- **H2 Database**: Banco de dados em memória utilizado para desenvolvimento e testes.
+- **R2DBC**: Fornece uma API reativa para conectividade com bancos de dados relacionais.
+
+## Considerações Finais
+
+A arquitetura foi selecionada para atender às necessidades de uma plataforma de streaming de vídeo, suportando alto volume de requisições e acesso rápido a dados. A escolha por um banco de dados em memória reflete o foco no desenvolvimento ágil e na execução de testes automatizados. O projeto segue as melhores práticas do setor, incluindo separação de camadas, uso de DTOs, tratamento de exceções e testes abrangentes, indicativos de uma base de código bem estruturada e mantível
 
 # Documentação da API de Vídeos
 
