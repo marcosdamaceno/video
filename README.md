@@ -33,7 +33,7 @@ Exemplo de Resposta (200 OK)
     }
 ]
 ```
-### bter Vídeo por ID
+### Obter Vídeo por ID
 Retorna um vídeo específico pelo seu ID.
 
 Parâmetros de URL
@@ -142,7 +142,6 @@ POST /api/videos
 Corpo da Requisição:
 
 ```json
-Copy code
 {
     "title": "Novo Vídeo",
     "description": "Descrição do Novo Vídeo",
@@ -158,7 +157,6 @@ POST /api/videos
 Exemplo de Resposta (201 Created)
 
 ```json
-Copy code
 {
     "id": 5,
     "title": "Novo Vídeo",
