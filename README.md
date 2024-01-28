@@ -279,7 +279,6 @@ Este endpoint permite registrar um novo usuário.
 
 **Exemplo de Requisição:**
 ```json
-POST /users/register
 {
     "username": "novousuario",
     "email": "novousuario@example.com",
@@ -325,4 +324,58 @@ email (String): O endereço de e-mail do usuário.
     }
 ]
 ```
+## CategoriaController
+
+### Criar Nova Categoria
+
+**Método:** POST `/categories`
+
+Este endpoint permite criar uma nova categoria.
+
+**Parâmetros da Requisição:**
+- `Category` (JSON): Um objeto JSON que contém as informações da nova categoria. O objeto deve ter as seguintes propriedades:
+  - `name` (String): O nome da nova categoria.
+
+**Exemplo de Requisição:**
+```json
+POST /categories
+{
+    "name": "Nova Categoria"
+}
+```
+Resposta de Sucesso (200 OK):
+A nova categoria foi criada com sucesso. A resposta contém as informações da categoria criada.
+
+Resposta de Erro (404 Not Found):
+Se houver algum problema ao criar a nova categoria, uma resposta de erro será retornada.
+
+###Obter Todas as Categorias
+Método: GET /categories
+
+Este endpoint permite obter a lista de todas as categorias cadastradas.
+
+**Exemplo de Requisição:**
+GET /categories
+
+Resposta de Sucesso (200 OK):
+A resposta contém uma lista de todas as categorias cadastradas.
+
+Cada categoria na lista possui as seguintes informações:
+
+id (Long): O ID da categoria.
+name (String): O nome da categoria.
+**Exemplo de Resposta:**
+GET /categories
+```json[
+    {
+        "id": 1,
+        "name": "Categoria 1"
+    },
+    {
+        "id": 2,
+        "name": "Categoria 2"
+    }
+]
+```json
+
 
