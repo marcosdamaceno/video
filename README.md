@@ -1,4 +1,4 @@
-# video
+# Video
 Aplicação web de streaming de vídeos utilizando as tecnologias Spring Framework, Spring Web Flux, Spring Boot e Spring Data. A aplicação deve permitir o gerenciamento e a exibição de vídeos, onde cada vídeo possui um título, descrição, URL e data de publicação 
 # Documentação de Arquitetura - Video Streaming App
 
