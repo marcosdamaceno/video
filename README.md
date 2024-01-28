@@ -1,5 +1,5 @@
 # video
-Projeto Video Tech FIAP
+Aplicação web de streaming de vídeos utilizando as tecnologias Spring Framework, Spring Web Flux, Spring Boot e Spring Data. A aplicação deve permitir o gerenciamento e a exibição de vídeos, onde cada vídeo possui um título, descrição, URL e data de publicação 
 markdown
 
 # Documentação da API de Vídeos
