@@ -31,7 +31,8 @@ Exemplo de Resposta (200 OK)
         "favorite": false,
         "categoryId": 2
     }
-]json```
+]json´´´
+
 ###Obter Vídeo por ID
 Retorna um vídeo específico pelo seu ID.
 
