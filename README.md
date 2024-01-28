@@ -1,7 +1,7 @@
 # video
 Projeto Video Tech FIAP
 markdown
-Copy code
+
 # Documentação da API de Vídeos
 
 ## Endpoints
@@ -31,9 +31,9 @@ Exemplo de Resposta (200 OK)
         "favorite": false,
         "categoryId": 2
     }
-]json´´´
-
-###Obter Vídeo por ID
+]
+```
+### bter Vídeo por ID
 Retorna um vídeo específico pelo seu ID.
 
 Parâmetros de URL
@@ -42,8 +42,7 @@ Parâmetros de URL
 Exemplo de Resposta (200 OK)
 GET /api/videos/{id}
 
-json
-Copy code
+```json
 {
     "id": 1,
     "title": "Vídeo 1",
@@ -53,7 +52,8 @@ Copy code
     "favorite": true,
     "categoryId": 1
 }
-Marcar/Desmarcar Vídeo como Favorito
+```
+### Marcar/Desmarcar Vídeo como Favorito
 Altera o status de favorito de um vídeo específico.
 
 Parâmetros de URL
@@ -64,12 +64,13 @@ PATCH /api/videos/{videoId}
 
 Exemplo de Resposta (200 OK)
 
-json
-Copy code
+```json
 {
     "message": "Vídeo marcado como favorito com sucesso."
 }
-Listar Vídeos por Categoria
+```
+
+### Listar Vídeos por Categoria
 GET /api/videos/category/{categoryId}
 
 Retorna uma lista de vídeos pertencentes a uma categoria específica.
@@ -80,8 +81,7 @@ Parâmetros de URL
 Exemplo de Requisição:
 GET /api/videos/category/1
 
-json
-Copy code
+```json
 [
     {
         "id": 1,
@@ -102,7 +102,9 @@ Copy code
         "categoryId": 1
     }
 ]
-Listar Vídeos Favoritos
+```
+
+### Listar Vídeos Favoritos
 GET /api/videos/favorites
 
 Retorna uma lista de todos os vídeos marcados como favoritos.
@@ -112,8 +114,7 @@ GET /api/videos/favorites
 
 Exemplo de Resposta (200 OK):
 
-json
-Copy code
+```json
 [
     {
         "id": 1,
@@ -134,14 +135,13 @@ Copy code
         "categoryId": 2
     }
 ]
-Criar Novo Vídeo
+```
+## Criar Novo Vídeo
 POST /api/videos
-
-Cria um novo vídeo.
 
 Corpo da Requisição:
 
-json
+```json
 Copy code
 {
     "title": "Novo Vídeo",
@@ -151,12 +151,13 @@ Copy code
     "favorite": false,
     "categoryId": 1
 }
+```
 Exemplo de Requisição
 POST /api/videos
 
 Exemplo de Resposta (201 Created)
 
-json
+```json
 Copy code
 {
     "id": 5,
@@ -167,21 +168,18 @@ Copy code
     "favorite": false,
     "categoryId": 1
 }
-Excluir Vídeo
+```
+### Excluir Vídeo
 DELETE /api/videos/{id}
-
 Exclui um vídeo específico.
-
 Parâmetros de URL
 {id} (Long): O ID do vídeo que deseja excluir.
-
 Exemplo de Requisição
 DELETE /api/videos/1
-
 Exemplo de Resposta (204 No Content)
 Não há corpo de resposta.
 
-Obter Estatísticas dos Vídeos
+### Obter Estatísticas dos Vídeos
 GET /api/videos/statistics
 
 Retorna estatísticas dos vídeos, incluindo o número total de favoritos e a média de visualizações.
@@ -191,9 +189,9 @@ GET /api/videos/statistics
 
 Exemplo de Resposta (200 OK)
 
-json
-Copy code
+```json
 {
     "totalFavorites": 3,
     "averageViews": 1000
 }
+```
